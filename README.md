@@ -15,3 +15,5 @@ f(x) = -12x^4*sin(cos(x)) - 18x^3+5x^2 + 10x - 30
 6. Определить промежутки, на котором f > 0
 
 7. Определить промежутки, на котором f < 0
+
+По [примеру](https://github.com/SvetlanaVoronova/homework-seminar-11/blob/main/example) из семинара. 
