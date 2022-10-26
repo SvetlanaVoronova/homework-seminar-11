@@ -38,8 +38,11 @@ is_increasing(5 * x ** 2 + 10 * x - 30, Interval.open(-1, oo))
 
 5 * x ** 2 + 10 * x - 30
 is_decreasing(5 * x ** 2 + 10 * x - 30, Interval.open(-oo, -1))
-True
-Построить график
+
+#Решение: True
+
+#Задача: Построить график
+
 5 * x ** 2 + 10 * x - 30
 import matplotlib.pyplot as plt
 x = [(5 * x ** 2 + 10 * x - 30) for x in range(-10, 11)]
