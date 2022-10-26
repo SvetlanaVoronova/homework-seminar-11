@@ -8,6 +8,52 @@
 #  6. Определить промежутки, на котором f > 0
 #  7. Определить промежутки, на котором f < 0
 
-#  -12x*4np.sin(np.cos(x))-18x3+5*x2+10*x-30
+from sympy import *
+from sympy.solvers import solve
+from scipy.misc import derivative
+import matplotlib.pyplot as plt
+import numpy as np
 
-#  1. Определить корни
+x = Symbol('x')
+
+## ОПРЕДЕЛИТЬ КОРНИ 
+
+solveset(-12*(x**4)*sin(cos(x))-18*x**2+10*x-30, x, domain = S.Reals)
+
+## НАЙТИ ИНТЕРВАЛЫ, НА КОТОРЫХ ФУНКЦИЯ ВОЗРАСТАЕТ
+
+is_increasing(-12*(x**4)*sin(cos(x))-18*x**2+10*x-30, Interval.open(-1, oo))
+
+## НАЙТИ ИНТЕРВАЛЫ, НА КОТОРЫХ ФУНКЦИЯ УБЫВАЕТ
+
+is_decreasing(-12*(x**4)*sin(cos(x))-18*x**2+10*x-30, Interval.open(-oo, -1))
+
+## ПОСТРОИТЬ ГРАФИК
+
+y = lambda x: -12*x**4*np.sin(np.cos(x))-18*x**2+10*x-30
+
+fig, ax = plt.subplots()
+x = np.linspace(-100, 100, 100)
+
+p = plt.plot(x, y(x))
+
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['top'].set_position(False)
+ax.spines['right'].set_position(False)
+
+plt.show()
+
+## ВЫЧИСЛИТЬ ВЕРШИНУ
+
+y_check = [y(x) for x in np.linspace(-50, 50, 100)]
+check_max = max(y_check)
+check_min = min(y_check)
+print(check_max, check_min)
+
+## ОПРЕДЕЛИТЬ ПРОМЕЖУТКИ, НА КОТОРЫХ f > 0 и f < 0
+
+distance = [derivative(y, h) for h in np.linspace(-50, 50, 100)] 
+print(distance)
+
+
